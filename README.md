@@ -54,4 +54,37 @@ B - Test with coverage
     Method: GET
     Path: /api/contents/
 
-### Project Structure
+## 1.5 Running with docker.
+
+A. Building docker image. Move to project main path and run following command.
+It takes little bit time.
+
+    A.1
+        docker build --tag poi:latest .
+
+    A.2 (For list available images)
+        docker image ls
+B. Run docker image.
+
+    B.1
+        docker run --name project_of_immfly -d -p 8000:8000 poi:latest
+    B.2 (checking running conrainer)
+        docker container ps
+
+
+### Directory Layout
+~~~
+
+project_of_immfly/
+└── .github
+│   ... test and healtcheck CI process with github Actions
+├── apps
+│   ... core folder (models, apis, serializers etc.)
+└── project_of_immfly
+│   ... project settings (setting, wsgi, routers, urls etc.)
+└── docker-entrypoint.sh
+└── Dockerfile
+└── manage.py
+└── README.md
+└── requirements.txt
+~~~
